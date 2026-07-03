@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>WDD 231 - Course Home Page - Victor Talabi</title>
+  <meta name="description" content="Victor Talabi's course portal home page for WDD 231 (Web Frontend Development II) at BYU-Idaho. Demonstrating responsive navigation, styling, and JavaScript course filtering.">
+  <meta name="author" content="Victor Talabi">
+  
+  <!-- SEO & Favicon -->
+  <link rel="icon" href="images/logo.svg" type="image/svg+xml">
+
+  <!-- Google Fonts - Outfit for modern Premium Typography -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+  <!-- Style Sheets (Normalize -> Mobile-first Small -> Larger Media Queries) -->
+  <link rel="stylesheet" href="styles/normalize.css">
+  <link rel="stylesheet" href="styles/small.css">
+  <link rel="stylesheet" href="styles/larger.css">
+
+  <!-- JavaScript Files loaded using defer (only executed after HTML is parsed) -->
+  <script src="scripts/navigation.js" defer></script>
+  <script src="scripts/getdates.js" defer></script>
+  <script src="scripts/course.js" defer></script>
+</head>
+<body>
+  <!-- Header Section with logo, author name, and hamburger menu toggle -->
+  <header>
+    <div class="header-container">
+      <div class="logo-area">
+        <img src="images/logo.svg" alt="Victor Talabi Personal Logo" width="50" height="50" class="logo-img">
+        <span class="site-title">Victor Talabi</span>
+      </div>
+      <button id="menu-toggle" aria-label="Toggle navigation menu" aria-expanded="false">
+        <span class="menu-bar bar-1"></span>
+        <span class="menu-bar bar-2"></span>
+        <span class="menu-bar bar-3"></span>
+      </button>
+    </div>
+  </header>
+
+  <!-- Responsive Navigation Menu -->
+  <nav id="navbar">
+    <ul class="nav-menu">
+      <li><a href="#" class="nav-item active" id="nav-home">Home</a></li>
+      <li><a href="chamber/index.html" class="nav-item" id="nav-chamber">Chamber</a></li>
+      <li><a href="final/index.html" class="nav-item" id="nav-final">Final</a></li>
+    </ul>
+  </nav>
+
+  <!-- Main Content Grid -->
+  <main>
+    <h1 class="main-title">Home</h1>
+    
+    <div class="main-grid">
+      <!-- Section 1: About Me -->
+      <section class="about-card">
+        <h2>About Me</h2>
+        <div class="card-content">
+          <p>
+            Hello! My name is <strong>Victor Talabi</strong>, and I am from Nigeria. I am currently pursuing a degree in Software Development at BYU-Idaho. I have a strong interest in frontend and backend web technologies, and I enjoy building projects that combine aesthetic design with highly optimized, clean code.
+          </p>
+          <p>
+            This portal page will host my assignments, chamber of commerce group projects, and final course designs. I look forward to working closely with my group members and implementing advanced web APIs and responsive UI/UX principles throughout this semester.
+          </p>
+        </div>
+      </section>
+
+      <!-- Section 2: Student Photo -->
+      <section class="photo-card">
+        <h2>Student Photo</h2>
+        <div class="card-content image-container">
+          <img src="images/profile.jpg" alt="Victor Talabi portrait" width="300" height="533" loading="lazy" class="profile-img">
+        </div>
+      </section>
+
+      <!-- Section 3: Web Certificate Courses -->
+      <section class="courses-card">
+        <h2>Web Certificate Courses</h2>
+        <div class="card-content">
+          <!-- Filtering Button Controls -->
+          <div class="filters-container">
+            <button id="filter-all" class="filter-btn active" aria-label="Show all courses">All</button>
+            <button id="filter-cse" class="filter-btn" aria-label="Show Computer Science courses only">CSE</button>
+            <button id="filter-wdd" class="filter-btn" aria-label="Show Web Design and Development courses only">WDD</button>
+          </div>
+
+          <!-- Dynamically Generated Course List -->
+          <div id="courses-grid" class="courses-grid">
+            <!-- Dynamically populated via course.js -->
+          </div>
+
+          <!-- Dynamic Credits Calculations using .reduce() -->
+          <div class="credits-panel">
+            <p id="total-credits">The total credits for courses listed above is <strong id="credits-sum">0</strong></p>
+          </div>
+        </div>
+      </section>
+    </div>
+  </main>
+
+  <!-- Footer Section with social icons, copyright details, and modification timestamp -->
+  <footer>
+    <div class="footer-container">
+      <!-- Social Media Media Row -->
+      <div class="social-links">
+        <a href="https://github.com/BIGvic-Coder" target="_blank" rel="noopener" aria-label="GitHub Profile">
+          <svg class="social-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path>
+          </svg>
+        </a>
+        <a href="https://linkedin.com" target="_blank" rel="noopener" aria-label="LinkedIn Profile">
+          <svg class="social-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path>
+            <rect x="2" y="9" width="4" height="12"></rect>
+            <circle cx="4" cy="4" r="2"></circle>
+          </svg>
+        </a>
+        <a href="https://x.com" target="_blank" rel="noopener" aria-label="Twitter/X Profile">
+          <svg class="social-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M4 4l11.733 16h4.267l-11.733 -16z"></path>
+            <path d="M4 20l6.768 -6.768m2.46 -2.46l6.772 -6.772"></path>
+          </svg>
+        </a>
+      </div>
+
+      <!-- Copyright Details -->
+      <div class="copyright-info">
+        <p>&copy; <span id="current-year"></span> | Victor Talabi | Nigeria</p>
+      </div>
+
+      <!-- Last Modified Timestamp -->
+      <div class="modified-info">
+        <p id="lastModified"></p>
+      </div>
+    </div>
+  </footer>
+</body>
+</html>
