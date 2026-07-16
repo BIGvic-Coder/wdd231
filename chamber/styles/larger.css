@@ -1,0 +1,123 @@
+/* Lagos Chamber of Commerce - Desktop & Tablet Stylesheet */
+
+@media screen and (min-width: 48rem) {
+  /* Navigation Menu - Horizontal navbar */
+  #menu-toggle {
+    display: none; /* Hide hamburger menu toggle */
+  }
+
+  nav {
+    max-height: none;
+    overflow: visible;
+    background-color: var(--secondary-color);
+  }
+
+  .nav-menu {
+    flex-direction: row;
+    justify-content: center;
+    padding: 0;
+  }
+
+  .nav-item {
+    padding: 1rem 2rem;
+    border-left: none;
+    border-bottom: 4px solid transparent;
+    transition: var(--transition);
+  }
+
+  .nav-item.active {
+    background-color: rgba(255, 255, 255, 0.04);
+    border-bottom-color: var(--gold-color);
+  }
+
+  .nav-item:hover {
+    background-color: rgba(255, 255, 255, 0.02);
+    border-bottom-color: var(--gold-color);
+    padding-left: 2rem; /* Stable horizontal padding */
+  }
+
+  /* Main section adjustments */
+  main {
+    padding: 2.5rem 1.5rem;
+  }
+
+  .directory-hero {
+    margin-bottom: 3rem;
+  }
+
+  .main-title {
+    font-size: 2.25rem;
+  }
+
+  .subtitle {
+    font-size: 1.1rem;
+  }
+
+  /* --- GRID VIEW COLUMNS --- */
+  .grid-view {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.75rem;
+  }
+
+  /* --- LIST VIEW ROW LAYOUT --- */
+  .list-view .member-card {
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0.75rem 1.5rem;
+    gap: 1.5rem;
+  }
+
+  .list-view .member-card h3 {
+    flex: 1 1 20%;
+    font-size: 1rem;
+    font-weight: 600;
+  }
+
+  .list-view .details-block {
+    flex: 2 1 60%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 1.5rem;
+  }
+
+  .list-view .details-block p {
+    margin: 0;
+  }
+
+  /* Hide address icon inside table for ultra clean tabular structure */
+  .list-view .details-block .address-val {
+    flex: 2 1 60%;
+  }
+
+  .list-view .details-block .phone-val {
+    flex: 1 1 40%;
+    text-align: right;
+  }
+
+  .list-view .website-link {
+    flex: 0 0 15%;
+    text-align: right;
+    margin: 0;
+  }
+
+  /* Footer adjustments */
+  .footer-grid {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2.5rem;
+  }
+
+  .footer-bottom {
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+  }
+}
+
+@media screen and (min-width: 64rem) {
+  /* Three-column card layout on larger screens */
+  .grid-view {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}

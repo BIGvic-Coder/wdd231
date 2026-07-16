@@ -1,0 +1,65 @@
+[
+  {
+    "name": "Bright Solutions Ltd",
+    "address": "12 Broad Street, Lagos Island, Lagos, Nigeria",
+    "phone": "+234 1 555 0192",
+    "website": "https://www.brightsolutions.com.ng",
+    "image": "bright.jpg",
+    "membership": 3,
+    "tagline": "Innovative cleaning and facilities management services for corporate hubs."
+  },
+  {
+    "name": "Tech Innovators Hub",
+    "address": "45 Herbert Macaulay Way, Yaba, Lagos, Nigeria",
+    "phone": "+234 1 555 0284",
+    "website": "https://www.techinnovators.com.ng",
+    "image": "th.jpg",
+    "membership": 3,
+    "tagline": "Empowering early-stage startups with tech workspaces and advisory."
+  },
+  {
+    "name": "GreenTech Enterprises",
+    "address": "78 Awolowo Road, Ikoyi, Lagos, Nigeria",
+    "phone": "+234 1 555 0375",
+    "website": "https://www.greentech.com.ng",
+    "image": "greentech.jpg",
+    "membership": 2,
+    "tagline": "Eco-friendly energy solutions and recycling systems for sustainable cities."
+  },
+  {
+    "name": "Future Horizons Agency",
+    "address": "101 Admiralty Way, Lekki Phase 1, Lagos, Nigeria",
+    "phone": "+234 1 555 0461",
+    "website": "https://www.futurehorizons.com.ng",
+    "image": "coom.jpg",
+    "membership": 1,
+    "tagline": "Strategic visual marketing and brand transformation services."
+  },
+  {
+    "name": "Creative Minds Studio",
+    "address": "202 Victoria Island Road, Victoria Island, Lagos, Nigeria",
+    "phone": "+234 1 555 0558",
+    "website": "https://www.creativeminds.com.ng",
+    "image": "creative.jpg",
+    "membership": 2,
+    "tagline": "Full-service digital media production, visual effects, and storytelling."
+  },
+  {
+    "name": "Digital Solutions Corp",
+    "address": "303 Isaac John Street, Ikeja GRA, Lagos, Nigeria",
+    "phone": "+234 1 555 0644",
+    "website": "https://www.digitalsolutions.com.ng",
+    "image": "digital.jpg",
+    "membership": 3,
+    "tagline": "Enterprise cloud services, cyber intelligence, and custom software systems."
+  },
+  {
+    "name": "Lagos Historic Tours",
+    "address": "14 Marina Road, Lagos Island, Lagos, Nigeria",
+    "phone": "+234 1 555 0731",
+    "website": "https://www.lagoshistorictours.com.ng",
+    "image": "historic.jpg",
+    "membership": 1,
+    "tagline": "Guiding local and international tourists through the rich cultural heritage of Lagos."
+  }
+]

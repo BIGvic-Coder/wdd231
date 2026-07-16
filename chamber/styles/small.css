@@ -1,0 +1,553 @@
+/* Lagos Chamber of Commerce - Small Screen (Mobile-First) CSS Stylesheet */
+
+:root {
+  /* Color Scheme variables */
+  --primary-color: #091e36;       /* Deep Navy */
+  --secondary-color: #1e3a5f;     /* Intermediate Navy */
+  --accent-color: #d97706;        /* Golden Amber */
+  --accent-hover: #b45309;
+  --gold-color: #fbbf24;
+  --silver-color: #94a3b8;
+  --bronze-color: #b45309;
+
+  /* Card Colors */
+  --card-bg: #ffffff;
+  --bg-color: #f8fafc;
+  --text-dark: #0f172a;
+  --text-light: #475569;
+  --text-white: #ffffff;
+  --border-color: #e2e8f0;
+
+  /* Font settings */
+  --font-family-headings: 'Poppins', sans-serif;
+  --font-family-body: 'Open Sans', sans-serif;
+
+  /* Layout tokens */
+  --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.05);
+  --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.05);
+  --border-radius: 12px;
+}
+
+/* Base resets & typography */
+body {
+  font-family: var(--font-family-body);
+  background-color: var(--bg-color);
+  color: var(--text-dark);
+  margin: 0;
+  line-height: 1.6;
+}
+
+h1, h2, h3, h4 {
+  font-family: var(--font-family-headings);
+  font-weight: 600;
+  color: var(--primary-color);
+  margin-top: 0;
+  letter-spacing: -0.02em;
+}
+
+a {
+  color: var(--accent-color);
+  text-decoration: none;
+  transition: var(--transition);
+}
+
+a:hover {
+  color: var(--accent-hover);
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+/* Header & brand emblem styling */
+header {
+  background-color: var(--primary-color);
+  color: var(--text-white);
+  padding: 1rem 1.25rem;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  box-shadow: var(--shadow-sm);
+}
+
+.header-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  max-width: 75rem;
+  margin: 0 auto;
+}
+
+.logo-area {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.logo-img {
+  width: 2.75rem;
+  height: 2.75rem;
+  filter: drop-shadow(0 2px 4px rgba(0,0,0,0.1));
+}
+
+.brand-text {
+  display: flex;
+  flex-direction: column;
+}
+
+.site-title {
+  font-family: var(--font-family-headings);
+  font-size: 1.25rem;
+  font-weight: 700;
+  line-height: 1.1;
+  letter-spacing: -0.01em;
+}
+
+.site-subtitle {
+  font-size: 0.8rem;
+  color: var(--gold-color);
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  margin-top: 2px;
+}
+
+/* Hamburger mobile menu button toggle styling */
+#menu-toggle {
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  width: 1.5rem;
+  height: 1.15rem;
+  padding: 0;
+  z-index: 101;
+}
+
+.menu-bar {
+  display: block;
+  width: 100%;
+  height: 3px;
+  background-color: var(--text-white);
+  border-radius: 4px;
+  transition: var(--transition);
+  transform-origin: left center;
+}
+
+/* Rotate bars to X state when expanded */
+#menu-toggle.open .bar-1 {
+  transform: rotate(45deg);
+  position: relative;
+  top: -1px;
+}
+
+#menu-toggle.open .bar-2 {
+  opacity: 0;
+  width: 0;
+}
+
+#menu-toggle.open .bar-3 {
+  transform: rotate(-45deg);
+  position: relative;
+  top: 1px;
+}
+
+/* Navigation Drawer menu styles */
+nav {
+  background-color: var(--secondary-color);
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.4s ease-out;
+  border-bottom: 3px solid var(--accent-color);
+}
+
+nav.open {
+  max-height: 20rem; /* Give plenty of height for menu links */
+}
+
+.nav-menu {
+  list-style: none;
+  margin: 0;
+  padding: 0.5rem 0;
+  display: flex;
+  flex-direction: column;
+}
+
+.nav-item {
+  display: block;
+  padding: 0.75rem 1.5rem;
+  color: #cbd5e1;
+  font-weight: 500;
+  transition: var(--transition);
+  border-left: 4px solid transparent;
+}
+
+.nav-item.active {
+  background-color: rgba(255, 255, 255, 0.08);
+  color: var(--text-white);
+  border-left-color: var(--gold-color);
+  font-weight: 600;
+}
+
+.nav-item:hover {
+  background-color: rgba(255, 255, 255, 0.05);
+  color: var(--text-white);
+  padding-left: 1.75rem; /* Slide effect */
+}
+
+/* Main Layout elements styling */
+main {
+  max-width: 75rem;
+  margin: 0 auto;
+  padding: 1.5rem 1.25rem;
+}
+
+.directory-hero {
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
+.main-title {
+  font-size: 1.75rem;
+  color: var(--primary-color);
+  margin-bottom: 0.25rem;
+}
+
+.subtitle {
+  color: var(--text-light);
+  font-size: 0.95rem;
+  margin: 0;
+}
+
+/* View layout toggler bar */
+.toggle-bar {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+  margin-bottom: 2rem;
+}
+
+.toggle-btn {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  background-color: var(--card-bg);
+  color: var(--text-light);
+  border: 1px solid var(--border-color);
+  padding: 0.6rem 1.25rem;
+  border-radius: 8px;
+  cursor: pointer;
+  font-family: var(--font-family-headings);
+  font-weight: 600;
+  font-size: 0.95rem;
+  transition: var(--transition);
+}
+
+.toggle-btn:hover {
+  border-color: var(--primary-color);
+  color: var(--primary-color);
+  background-color: #f1f5f9;
+}
+
+.toggle-btn.active {
+  background-color: var(--primary-color);
+  color: var(--text-white);
+  border-color: var(--primary-color);
+  box-shadow: var(--shadow-sm);
+}
+
+.toggle-icon {
+  flex-shrink: 0;
+}
+
+/* Dynamic cards container */
+#members-container {
+  transition: var(--transition);
+}
+
+/* --- GRID VIEW STYLING --- */
+.grid-view {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1.5rem;
+}
+
+.grid-view .member-card {
+  background-color: var(--card-bg);
+  border-radius: var(--border-radius);
+  border: 1px solid var(--border-color);
+  box-shadow: var(--shadow-sm);
+  padding: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  transition: var(--transition);
+}
+
+.grid-view .member-card:hover {
+  transform: translateY(-3px);
+  box-shadow: var(--shadow-md);
+}
+
+.grid-view .member-logo-container {
+  width: 100%;
+  height: 6rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 1.25rem;
+  border-bottom: 1px dashed var(--border-color);
+  padding-bottom: 1rem;
+}
+
+.grid-view .member-logo {
+  max-height: 4.5rem;
+  max-width: 80%;
+  object-fit: contain;
+  border-radius: 4px;
+}
+
+.grid-view .member-card h3 {
+  font-size: 1.2rem;
+  margin-bottom: 0.5rem;
+}
+
+.grid-view .tagline {
+  font-size: 0.85rem;
+  font-style: italic;
+  color: var(--text-light);
+  margin-bottom: 1rem;
+  flex-grow: 1; /* Pushes text details block down */
+}
+
+.grid-view .details-block {
+  font-size: 0.875rem;
+  color: var(--text-light);
+  margin-bottom: 1rem;
+  width: 100%;
+  text-align: left;
+  border-top: 1px solid var(--border-color);
+  padding-top: 0.75rem;
+}
+
+.grid-view .details-block p {
+  margin: 0.25rem 0;
+  display: flex;
+  align-items: flex-start;
+  gap: 0.5rem;
+}
+
+.grid-view .website-link {
+  display: inline-block;
+  background-color: var(--accent-color);
+  color: var(--text-white);
+  font-family: var(--font-family-headings);
+  font-size: 0.85rem;
+  font-weight: 600;
+  padding: 0.5rem 1.25rem;
+  border-radius: 6px;
+  width: 100%;
+  text-align: center;
+  margin-top: 0.5rem;
+}
+
+.grid-view .website-link:hover {
+  background-color: var(--accent-hover);
+  color: var(--text-white);
+}
+
+/* Membership ribbon markers for Grid Cards */
+.grid-view .member-card.gold-tier {
+  border-top: 4px solid var(--gold-color);
+}
+.grid-view .member-card.silver-tier {
+  border-top: 4px solid var(--silver-color);
+}
+.grid-view .member-card.member-tier {
+  border-top: 4px solid var(--text-light);
+}
+
+.grid-view .membership-badge {
+  font-size: 0.7rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  padding: 0.25rem 0.6rem;
+  border-radius: 100px;
+  margin-bottom: 1rem;
+  display: inline-block;
+}
+
+.grid-view .gold-tier .membership-badge {
+  background-color: #fef3c7;
+  color: #92400e;
+}
+
+.grid-view .silver-tier .membership-badge {
+  background-color: #f1f5f9;
+  color: #475569;
+}
+
+.grid-view .member-tier .membership-badge {
+  background-color: #f3f4f6;
+  color: #1f2937;
+}
+
+
+/* --- LIST VIEW STYLING (Images Hidden) --- */
+.list-view {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.list-view .member-card {
+  background-color: var(--card-bg);
+  border-radius: 8px;
+  border: 1px solid var(--border-color);
+  padding: 1rem 1.25rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  transition: var(--transition);
+}
+
+/* Hide images completely in List view per rubric */
+.list-view .member-logo-container,
+.list-view .member-logo,
+.list-view .tagline,
+.list-view .membership-badge {
+  display: none !important;
+}
+
+.list-view .member-card h3 {
+  font-size: 1.1rem;
+  margin: 0;
+}
+
+.list-view .details-block {
+  margin: 0;
+  font-size: 0.875rem;
+  color: var(--text-light);
+}
+
+.list-view .details-block p {
+  margin: 0.25rem 0;
+}
+
+.list-view .website-link {
+  font-weight: 600;
+  font-size: 0.875rem;
+  display: inline-block;
+  margin-top: 0.25rem;
+}
+
+/* Alternating table rows for clean structure in list view */
+.list-view .member-card:nth-child(even) {
+  background-color: #f1f5f9;
+}
+
+
+/* Footer styling */
+footer {
+  background-color: var(--primary-color);
+  color: #cbd5e1;
+  padding: 2.5rem 1.25rem 1.5rem;
+  border-top: 5px solid var(--accent-color);
+  font-size: 0.9rem;
+}
+
+.footer-container {
+  max-width: 75rem;
+  margin: 0 auto;
+}
+
+.footer-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 2rem;
+  margin-bottom: 2rem;
+  border-bottom: 1px solid rgba(255,255,255,0.08);
+  padding-bottom: 2rem;
+}
+
+.footer-col h3 {
+  color: var(--text-white);
+  font-size: 1.1rem;
+  margin-bottom: 1rem;
+  position: relative;
+  display: inline-block;
+}
+
+.footer-col h3::after {
+  content: '';
+  position: absolute;
+  bottom: -4px;
+  left: 0;
+  width: 1.5rem;
+  height: 2px;
+  background-color: var(--accent-color);
+}
+
+.footer-col p {
+  margin: 0.5rem 0;
+  color: #94a3b8;
+}
+
+.footer-logo {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  color: var(--text-white);
+  font-family: var(--font-family-headings);
+  font-size: 1.25rem;
+  font-weight: 700;
+  margin-bottom: 0.75rem;
+}
+
+.footer-col.brand-col .tagline {
+  font-size: 0.85rem;
+  line-height: 1.5;
+}
+
+.social-links {
+  display: flex;
+  gap: 1rem;
+}
+
+.social-icon {
+  width: 1.35rem;
+  height: 1.35rem;
+  color: #cbd5e1;
+  transition: var(--transition);
+}
+
+.social-icon:hover {
+  color: var(--gold-color);
+  transform: translateY(-2px);
+}
+
+/* Footer Bottom Credit */
+.footer-bottom {
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  color: #64748b;
+  font-size: 0.8rem;
+}
+
+.footer-bottom p {
+  margin: 0;
+}
+
+.footer-bottom .timestamp {
+  font-family: monospace;
+  color: #475569;
+}
