@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Lagos Chamber of Commerce - Discover Lagos</title>
+  <meta name="description" content="Discover the vibrant landmarks, cultural hubs, and commercial centers of Lagos, Nigeria. Connect with local business ecosystems.">
+  <meta name="author" content="Victor Talabi">
+
+  <!-- Favicon -->
+  <link rel="icon" href="images/favicon.svg" type="image/svg+xml">
+
+  <!-- Google Fonts - Poppins & Open Sans -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
+  <!-- CSS Stylesheets -->
+  <link rel="stylesheet" href="styles/normalize.css">
+  <link rel="stylesheet" href="styles/small.css">
+  <link rel="stylesheet" href="styles/larger.css">
+
+  <!-- Scripts using defer -->
+  <script src="scripts/navigation.js" defer></script>
+  <script src="scripts/getdates.js" defer></script>
+  <script>
+    document.addEventListener("DOMContentLoaded", () => {
+      const visitMessageElement = document.getElementById("visit-message");
+      if (!visitMessageElement) return;
+
+      const lastVisit = localStorage.getItem("lastVisit");
+      const currentVisit = Date.now();
+
+      // Store current visit date
+      localStorage.setItem("lastVisit", currentVisit);
+
+      if (!lastVisit) {
+        // First visit
+        visitMessageElement.textContent = "Welcome! Let us know if you have any questions.";
+      } else {
+        const timeDiff = currentVisit - parseInt(lastVisit);
+        const daysDiff = Math.floor(timeDiff / (1000 * 60 * 60 * 24));
+
+        if (timeDiff < 1000 * 60 * 60 * 24) {
+          // Less than 24 hours
+          visitMessageElement.textContent = "Back so soon! Awesome!";
+        } else if (daysDiff === 1) {
+          // Exactly 1 day
+          visitMessageElement.textContent = "You last visited 1 day ago.";
+        } else {
+          // More than 1 day
+          visitMessageElement.textContent = `You last visited ${daysDiff} days ago.`;
+        }
+      }
+    });
+  </script>
+</head>
+<body>
+  <!-- Header Section -->
+  <header>
+    <div class="header-container">
+      <div class="logo-area">
+        <img src="images/favicon.svg" alt="Lagos Chamber Emblem" width="55" height="55" class="logo-img">
+        <div class="brand-text">
+          <span class="site-title">Lagos Chamber</span>
+          <span class="site-subtitle">of Commerce</span>
+        </div>
+      </div>
+      <button id="menu-toggle" aria-label="Toggle navigation menu" aria-expanded="false">
+        <span class="menu-bar bar-1"></span>
+        <span class="menu-bar bar-2"></span>
+        <span class="menu-bar bar-3"></span>
+      </button>
+    </div>
+  </header>
+
+  <!-- Navigation Menu -->
+  <nav id="navbar">
+    <ul class="nav-menu">
+      <li><a href="index.html" class="nav-item" id="nav-home">Home</a></li>
+      <li><a href="directory.html" class="nav-item" id="nav-directory">Directory</a></li>
+      <li><a href="join.html" class="nav-item" id="nav-join">Join</a></li>
+      <li><a href="#" class="nav-item active" id="nav-discover">Discover</a></li>
+    </ul>
+  </nav>
+
+  <!-- Main Container -->
+  <main>
+    <div class="directory-hero">
+      <h1 class="main-title">Discover Lagos</h1>
+      <p class="subtitle">Explore the business, cultural, and environmental landmarks of Africa's commercial megacity</p>
+    </div>
+
+    <!-- Discover split layout: Left sidebar for tracking/stats, Right side for image gallery -->
+    <div class="discover-layout">
+      <!-- Sidebar panel with Visit Tracker -->
+      <aside class="discover-sidebar">
+        <div class="card visit-card">
+          <h2>Visitor Info</h2>
+          <p id="visit-message" class="visit-message-text">Calculating visit duration...</p>
+        </div>
+
+        <div class="card info-card">
+          <h2>Lagos Demographics</h2>
+          <div class="stat-row">
+            <span class="label">Population:</span>
+            <span class="val">~24 Million</span>
+          </div>
+          <div class="stat-row">
+            <span class="label">Economic Output:</span>
+            <span class="val">#1 GDP in Nigeria</span>
+          </div>
+          <div class="stat-row">
+            <span class="label">Nickname:</span>
+            <span class="val">Center of Excellence</span>
+          </div>
+          <p class="desc">Lagos is the economic heart of West Africa, hosting regional offices, global financial institutions, and a thriving digital workspace environment.</p>
+        </div>
+      </aside>
+
+      <!-- Image Gallery Grid -->
+      <section class="gallery-container">
+        <h2>Landmarks & Attractions</h2>
+        <div class="gallery-grid">
+          
+          <figure class="gallery-item">
+            <img src="https://images.unsplash.com/photo-1599930190890-a94f8e6573c6?auto=format&fit=crop&w=600&q=80" alt="Lekki Conservation Centre Canopy Walkway" class="gallery-img" loading="lazy">
+            <figcaption>
+              <h3>Lekki Conservation Centre</h3>
+              <p>Africa's longest canopy walkway, preserving coastal mangrove forest and native wildlife habitats.</p>
+            </figcaption>
+          </figure>
+
+          <figure class="gallery-item">
+            <img src="https://images.unsplash.com/photo-1618843479313-40f8afb4b4d8?auto=format&fit=crop&w=600&q=80" alt="Eko Bridge crossing Lagos Lagoon" class="gallery-img" loading="lazy">
+            <figcaption>
+              <h3>Eko Bridge</h3>
+              <p>Iconic civil gateway connecting Lagos mainland commercial corridors with Victoria Island and Ikoyi.</p>
+            </figcaption>
+          </figure>
+
+          <figure class="gallery-item">
+            <img src="https://images.unsplash.com/photo-1549488344-1f9b8d2bd1f3?auto=format&fit=crop&w=600&q=80" alt="Civic Center Victoria Island Waterfront" class="gallery-img" loading="lazy">
+            <figcaption>
+              <h3>Waterfront Commercial Hubs</h3>
+              <p>Modern architectural landmarks along Victoria Island's economic shoreline, driving corporate growth.</p>
+            </figcaption>
+          </figure>
+
+          <figure class="gallery-item">
+            <img src="https://images.unsplash.com/photo-1600880292203-757bb62b4baf?auto=format&fit=crop&w=600&q=80" alt="Lagos Skyline Lagoon Waterfront Sunset" class="gallery-img" loading="lazy">
+            <figcaption>
+              <h3>Marina Skyline</h3>
+              <p>The traditional banking capital district, blending historic trading headquarters with modern financial structures.</p>
+            </figcaption>
+          </figure>
+
+          <figure class="gallery-item">
+            <img src="https://images.unsplash.com/photo-1620121692029-d088224ddc74?auto=format&fit=crop&w=600&q=80" alt="Nike Art Gallery Artworks Displays" class="gallery-img" loading="lazy">
+            <figcaption>
+              <h3>Nike Art Gallery</h3>
+              <p>A multi-story cultural treasury showing rich traditional textiles, sculpture, and modern African fine art.</p>
+            </figcaption>
+          </figure>
+
+          <figure class="gallery-item">
+            <img src="https://images.unsplash.com/photo-1564507592937-25994a9015b2?auto=format&fit=crop&w=600&q=80" alt="Lagos Beachfront Leisure Coastline" class="gallery-img" loading="lazy">
+            <figcaption>
+              <h3>Tarkwa Bay Beach</h3>
+              <p>A sheltered beach along the harbor entrance, popular with water sports and local weekend getaways.</p>
+            </figcaption>
+          </figure>
+
+        </div>
+      </section>
+    </div>
+  </main>
+
+  <!-- Footer Section -->
+  <footer>
+    <div class="footer-container">
+      <div class="footer-grid">
+        <div class="footer-col brand-col">
+          <div class="footer-logo">
+            <img src="images/favicon.svg" alt="Lagos Chamber Logo" width="40" height="40">
+            <span>Lagos Chamber</span>
+          </div>
+          <p class="tagline">Fostering collaboration, networking, and growth across Nigeria's commercial capital.</p>
+        </div>
+
+        <div class="footer-col contact-col">
+          <h3>Contact Us</h3>
+          <p>📍 14 Marina Road, Lagos Island, Lagos</p>
+          <p>📞 +234 1 555 1000</p>
+          <p>✉️ info@lagoschamber.com.ng</p>
+        </div>
+
+        <div class="footer-col social-col">
+          <h3>Follow Us</h3>
+          <div class="social-links">
+            <a href="https://facebook.com" target="_blank" rel="noopener" aria-label="Facebook Page">
+              <svg class="social-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"></path>
+              </svg>
+            </a>
+            <a href="https://linkedin.com" target="_blank" rel="noopener" aria-label="LinkedIn Profile">
+              <svg class="social-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path>
+                <rect x="2" y="9" width="4" height="12"></rect>
+                <circle cx="4" cy="4" r="2"></circle>
+              </svg>
+            </a>
+            <a href="https://x.com" target="_blank" rel="noopener" aria-label="Twitter/X Profile">
+              <svg class="social-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M4 4l11.733 16h4.267l-11.733 -16z"></path>
+                <path d="M4 20l6.768 -6.768m2.46 -2.46l6.772 -6.772"></path>
+              </svg>
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <p>&copy; <span id="current-year"></span> | Lagos Chamber of Commerce | Victor Talabi | WDD 231</p>
+        <p id="lastModified" class="timestamp"></p>
+      </div>
+    </div>
+  </footer>
+</body>
+</html>

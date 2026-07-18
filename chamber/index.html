@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Lagos Chamber of Commerce - Home</title>
+  <meta name="description" content="Welcome to the Lagos Chamber of Commerce. Fostering economic growth, trade development, and digital innovation in Lagos, Nigeria.">
+  <meta name="author" content="Victor Talabi">
+
+  <!-- Favicon -->
+  <link rel="icon" href="images/favicon.svg" type="image/svg+xml">
+
+  <!-- OpenGraph Facebook Meta Tags -->
+  <meta property="og:title" content="Lagos Chamber of Commerce - Home">
+  <meta property="og:description" content="Discover networking events, weather forecasts, and premium business spotlights at Lagos Chamber of Commerce.">
+  <meta property="og:image" content="https://bigvic-coder.github.io/wdd231/chamber/images/favicon.svg">
+  <meta property="og:url" content="https://bigvic-coder.github.io/wdd231/chamber/index.html">
+  <meta property="og:type" content="website">
+
+  <!-- Google Fonts - Poppins (Headings) & Open Sans (Body) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
+  <!-- CSS Stylesheets -->
+  <link rel="stylesheet" href="styles/normalize.css">
+  <link rel="stylesheet" href="styles/small.css">
+  <link rel="stylesheet" href="styles/larger.css">
+
+  <!-- Scripts using defer -->
+  <script src="scripts/navigation.js" defer></script>
+  <script src="scripts/getdates.js" defer></script>
+  <script src="scripts/home.js" defer></script>
+</head>
+<body>
+  <!-- Header with logo, title and navigation toggles -->
+  <header>
+    <div class="header-container">
+      <div class="logo-area">
+        <img src="images/favicon.svg" alt="Lagos Chamber of Commerce Emblem" width="55" height="55" class="logo-img">
+        <div class="brand-text">
+          <span class="site-title">Lagos Chamber</span>
+          <span class="site-subtitle">of Commerce</span>
+        </div>
+      </div>
+      <button id="menu-toggle" aria-label="Toggle navigation menu" aria-expanded="false">
+        <span class="menu-bar bar-1"></span>
+        <span class="menu-bar bar-2"></span>
+        <span class="menu-bar bar-3"></span>
+      </button>
+    </div>
+  </header>
+
+  <!-- Navigation Menu -->
+  <nav id="navbar">
+    <ul class="nav-menu">
+      <li><a href="#" class="nav-item active" id="nav-home">Home</a></li>
+      <li><a href="directory.html" class="nav-item" id="nav-directory">Directory</a></li>
+      <li><a href="join.html" class="nav-item" id="nav-join">Join</a></li>
+      <li><a href="discover.html" class="nav-item" id="nav-discover">Discover</a></li>
+    </ul>
+  </nav>
+
+  <!-- Main Content Layout -->
+  <main class="home-main">
+    <!-- Hero Banner Section -->
+    <section class="hero-section">
+      <picture>
+        <img src="images/lagos-hero.png" alt="Lagos Lagoon Waterfront Skyline" class="hero-img" loading="eager">
+      </picture>
+      <div class="hero-overlay">
+        <div class="hero-text-box">
+          <h2>Empowering Lagos Businesses</h2>
+          <p>Fostering trade expansion, dynamic industrial development, and collaborative digital innovation in Africa's major commercial hub.</p>
+          <a href="join.html" class="cta-btn">Join the Chamber</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Grid Layout containing Events, Weather and Spotlights -->
+    <div class="home-grid">
+      <!-- Events Bulletin Panel -->
+      <section class="events-card card">
+        <div class="card-header">
+          <h2>Upcoming Events</h2>
+        </div>
+        <div class="events-list">
+          <div class="event-item">
+            <div class="event-date">
+              <span class="day">28</span>
+              <span class="month">Jul</span>
+            </div>
+            <div class="event-details">
+              <h3>Lagos Trade Forum 2026</h3>
+              <p>📍 Eko Hotels & Suites | 9:00 AM</p>
+              <p class="desc">A premier gathering of industry leaders and policymakers discussing continental trade integration.</p>
+            </div>
+          </div>
+          <div class="event-item">
+            <div class="event-date">
+              <span class="day">12</span>
+              <span class="month">Aug</span>
+            </div>
+            <div class="event-details">
+              <h3>Tech & SME Roundtable</h3>
+              <p>📍 Yaba Innovation Hub | 2:00 PM</p>
+              <p class="desc">Practical workshop for business leaders on automating workflows and leveraging cloud systems.</p>
+            </div>
+          </div>
+          <div class="event-item">
+            <div class="event-date">
+              <span class="day">08</span>
+              <span class="month">Sep</span>
+            </div>
+            <div class="event-details">
+              <h3>Chamber Networking Mixer</h3>
+              <p>📍 Radisson Blu anchorage | 6:00 PM</p>
+              <p class="desc">Unwind and connect with fellow entrepreneurs, silver/gold members, and trade partners.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Dynamic Weather Card -->
+      <section class="weather-card card">
+        <div class="card-header">
+          <h2>Lagos Weather</h2>
+        </div>
+        <div class="weather-content">
+          <!-- Current Weather Status -->
+          <div id="current-weather">
+            <div class="weather-main">
+              <img id="weather-icon" src="" alt="Weather Icon" class="weather-icon-img" style="display: none;">
+              <div class="temp-container">
+                <span id="current-temp">--</span>°C
+              </div>
+            </div>
+            <p id="weather-desc">Fetching current conditions...</p>
+            <div class="weather-stats">
+              <div class="stat-item">
+                <span class="stat-label">Humidity:</span>
+                <span id="humidity" class="stat-value">--</span>%
+              </div>
+              <div class="stat-item">
+                <span class="stat-label">Wind Speed:</span>
+                <span id="wind-speed" class="stat-value">--</span> m/s
+              </div>
+            </div>
+          </div>
+          
+          <hr class="card-divider">
+          
+          <!-- 3-Day Forecast Panel -->
+          <div class="forecast-section">
+            <h3>3-Day Forecast</h3>
+            <div id="forecast-container" class="forecast-grid">
+              <div class="forecast-day-placeholder">Loading forecasts...</div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </div>
+
+    <!-- Spotlight Cards Section -->
+    <section class="spotlight-section">
+      <div class="section-header">
+        <h2>Member Spotlights</h2>
+        <p class="section-tagline">Supporting the organizations driving excellence and growth in Lagos</p>
+      </div>
+      <div id="spotlight-container" class="spotlight-grid">
+        <!-- Spotlight items injected dynamically via scripts/home.js -->
+        <div class="spotlight-placeholder">Loading business spotlights...</div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Footer Section -->
+  <footer>
+    <div class="footer-container">
+      <div class="footer-grid">
+        <!-- Brand Info -->
+        <div class="footer-col brand-col">
+          <div class="footer-logo">
+            <img src="images/favicon.svg" alt="Lagos Chamber Logo" width="40" height="40">
+            <span>Lagos Chamber</span>
+          </div>
+          <p class="tagline">Fostering collaboration, networking, and growth across Nigeria's commercial capital.</p>
+        </div>
+
+        <!-- Contact details -->
+        <div class="footer-col contact-col">
+          <h3>Contact Us</h3>
+          <p>📍 14 Marina Road, Lagos Island, Lagos</p>
+          <p>📞 +234 1 555 1000</p>
+          <p>✉️ info@lagoschamber.com.ng</p>
+        </div>
+
+        <!-- Social Media links -->
+        <div class="footer-col social-col">
+          <h3>Follow Us</h3>
+          <div class="social-links">
+            <a href="https://facebook.com" target="_blank" rel="noopener" aria-label="Facebook Page">
+              <svg class="social-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"></path>
+              </svg>
+            </a>
+            <a href="https://linkedin.com" target="_blank" rel="noopener" aria-label="LinkedIn Profile">
+              <svg class="social-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path>
+                <rect x="2" y="9" width="4" height="12"></rect>
+                <circle cx="4" cy="4" r="2"></circle>
+              </svg>
+            </a>
+            <a href="https://x.com" target="_blank" rel="noopener" aria-label="Twitter/X Profile">
+              <svg class="social-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M4 4l11.733 16h4.267l-11.733 -16z"></path>
+                <path d="M4 20l6.768 -6.768m2.46 -2.46l6.772 -6.772"></path>
+              </svg>
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Copyright Details & Developer Info -->
+      <div class="footer-bottom">
+        <p>&copy; <span id="current-year"></span> | Lagos Chamber of Commerce | Victor Talabi | WDD 231</p>
+        <p id="lastModified" class="timestamp"></p>
+      </div>
+    </div>
+  </footer>
+</body>
+</html>
